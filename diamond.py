@@ -6,11 +6,19 @@ if __name__ == '__main__':
     args = parser.parse_args()
     n = args.number
     print("Running diamond program with integer {}".format(n))
+    rows = []
+
     for row in list(range(n)):
         if row == 0:
-            print('*' * (n - 1) + str(n) + '*' * (n-1)) 
+            rows.append('*' * (n - 1) + str(n) + '*' * (n-1)) 
         else:
             num_out = n - 1 - row
             num_in = 2 * row -1
-            print('*' * num_out + str(n) + '*' * num_in + str(n) + '*' * num_out)
+            rows.append('*' * num_out + str(n) + '*' * num_in + str(n) + '*' * num_out)
 
+    
+    for row in rows:
+        print(row)
+
+    for row in list(reversed(rows))[1:]:
+        print(row)
